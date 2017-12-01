@@ -4,11 +4,13 @@ from gSheetPunch import *
 from threading import Thread
 import datetime, time, sys, os
 
+dirname = os.path.split(os.path.abspath(__file__))[0]
+
 def threadFunction(func, array):
         return Thread(target=func, args=(array))
 
-def MasterLog(directory, employee, data): ## GOOGLE API CREDZ PARAM
-        with open('%s/MasterTimeClockLog.csv' % directory, 'a+') as MasterLog:
+def MasterLog(directory, employee, data):
+        with open('%s/%s/MasterTimeClockLog.csv' % (dirname, directory), 'a+') as MasterLog:
                 MasterLog.write("%s,%s" % (employee, data))
         MasterLog.close()
         print 'Master Log Written Succesfully!'
@@ -21,7 +23,7 @@ def timeCard(punch):
         if not os.path.exists(directory):
                 os.makedirs(directory)
                 
-        with open("%s/%s.csv" % (directory, employee), 'a+') as employeeLogFile:
+        with open("%s/%s/%s.csv" % (dirname, directory, employee), 'a+') as employeeLogFile:
                 timeCardData = "%s,%s,%s\n" % (action, data[0], data[1])
                 employeeLogFile.write(timeCardData)
         employeeLogFile.close()
