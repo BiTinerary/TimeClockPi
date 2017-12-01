@@ -54,7 +54,7 @@ def mainSwipe(worksheet, employee):
                         punch = [worksheet, employee, punchDayTime, "CLOCKOUT"]            
                         ledThread = threadFunction(blink, [greenLedPin, 6])
 
-                cardThread = threadFunction(timecard, [punch])
+                cardThread = threadFunction(timeCard, [punch])
                 cardThread.start()
                 ledThread.start()
 
