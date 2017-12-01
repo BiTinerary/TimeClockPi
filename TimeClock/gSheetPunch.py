@@ -1,8 +1,10 @@
 import datetime, gspread, sys, re
 from oauth2client.service_account import ServiceAccountCredentials
 
+dirname = os.path.split(os.path.abspath(__file__))[0]
 today = datetime.date.today()
-apiCreds = 'MiscScripts-50022bf06964.json'
+apiCreds = '%s/MiscScripts-50022bf06964.json' % dirname
+
 
 def militaryTimestamp(): # return current time. For clock in/out stamp.
         return datetime.datetime.now().strftime('%H:%M')
