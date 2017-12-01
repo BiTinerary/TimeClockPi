@@ -59,6 +59,7 @@ while continue_reading:
 		
 		osCommand = Thread(target=osThread, args=[hashie, uidFull])
 		osCommand.start()
+		time.sleep(2)
 		#osThread(hashie, uidFull)
 		#os.system('%s' % hashie[uidFull])
 	else:
