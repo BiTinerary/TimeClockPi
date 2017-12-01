@@ -11,8 +11,4 @@ cd SPI-Py
 pip install .
 cd ..
 
-cd OrangePiZeroMFRC522
-pip install .
-cd ..
-
 python triggerRead.py
