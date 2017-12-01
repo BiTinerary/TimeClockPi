@@ -20,8 +20,8 @@ def timeCard(punch):
         worksheet, employee, data, action = punch[0], punch[1], punch[2], punch[3]
         directory = 'TimeCards'
         
-        if not os.path.exists(directory):
-                os.makedirs(directory)
+        if not os.path.exists("%s/%s" % (dirname, directory)):
+                os.makedirs("%s/%s" % (dirname, directory))
                 
         with open("%s/%s/%s.csv" % (dirname, directory, employee), 'a+') as employeeLogFile:
                 timeCardData = "%s,%s,%s\n" % (action, data[0], data[1])
