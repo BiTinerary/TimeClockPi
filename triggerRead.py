@@ -80,6 +80,6 @@ while continue_reading:
             MIFAREReader.MFRC522_Read(8)
             MIFAREReader.MFRC522_StopCrypto1()
 	    time.sleep(2)
-	    os.system('echo 0 > /sys/class/leds/red_led/brightness')
+	    #os.system('echo 0 > /sys/class/leds/red_led/brightness')
 	else:
             print "Authentication error"
