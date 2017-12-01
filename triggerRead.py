@@ -3,7 +3,8 @@
 
 import OPi.GPIO as GPIO
 from MFRC522 import MFRC522
-import threading, signal, time, os
+from threading import Thread
+import signal, time, os
 
 continue_reading = True
 
@@ -56,7 +57,7 @@ while continue_reading:
 	if uidFull in hashie:
 		print uidFull
 		
-		osCommand = threading.thread(target=osThread, args=[hashie, uidFull])
+		osCommand = Thread(target=osThread, args=[hashie, uidFull])
 		osCommand.start()
 		#osThread(hashie, uidFull)
 		#os.system('%s' % hashie[uidFull])
