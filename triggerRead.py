@@ -2,10 +2,13 @@
 # -*- coding: utf8 -*-
 
 import OPi.GPIO as GPIO
-from OrangePiZeroMFRC522.MFRC522python import MFRC522
-import signal, time, os
+from OPiZ.MFRC522 import MFRC522
+import threading, signal, time, os
 
 continue_reading = True
+
+def osThread(hashie, uidFull):
+	os.system('%s' % hashie[uidFull])
 
 # Capture SIGINT for cleanup when the script is aborted
 def end_read(signal,frame):
@@ -52,7 +55,11 @@ while continue_reading:
 	
 	if uidFull in hashie:
 		print uidFull
-		os.system('%s' % hashie[uidFull])
+		
+		osCommand = threading.thread(target=osThread, args=[hashie, uidFull])
+		osCommand.start()
+		#osThread(hashie, uidFull)
+		#os.system('%s' % hashie[uidFull])
 	else:
 		print "UID: %s is not associated with a trigger" % uidFull
 	
