@@ -51,7 +51,7 @@ while continue_reading:
 	with open('hashFile.txt') as file:
 		for line in file:
 			key, value = line.split(',')
-			print key, value,
+			#print key, value,
 			hashie[key] = value
 	
 	if uidFull in hashie:
@@ -64,7 +64,7 @@ while continue_reading:
 	else:
 		print "UID: %s is not associated with a trigger" % uidFull
 	
-	os.system('echo "heartbeat" > /sys/class/leds/red_led/trigger')
+	#os.system('echo "heartbeat" > /sys/class/leds/red_led/trigger')
 	
         # This is the default key for authentication
         key = [0xFF,0xFF,0xFF,0xFF,0xFF,0xFF]
