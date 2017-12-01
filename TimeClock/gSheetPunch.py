@@ -1,4 +1,4 @@
-import datetime, gspread, sys, re
+import datetime, gspread, sys, os, re
 from oauth2client.service_account import ServiceAccountCredentials
 
 dirname = os.path.split(os.path.abspath(__file__))[0]
