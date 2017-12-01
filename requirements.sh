@@ -2,6 +2,8 @@ apt-get install python-dev -y
 apt-get install python-pip -y
 pip install --upgrade pip
 pip install setuptools
+pip install gpsread
+pip install oauth2client
 
 cd OPi.GPIO
 pip install .
