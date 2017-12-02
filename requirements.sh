@@ -1,3 +1,5 @@
+apt-get update -y
+apt-get upgrade -y
 apt-get install python-dev -y
 apt-get install python-pip -y
 pip install --upgrade pip
