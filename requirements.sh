@@ -15,4 +15,6 @@ cd SPI-Py
 pip install .
 cd ..
 
+dpkg-reconfigure tzdata
+
 python triggerRead.py
