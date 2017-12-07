@@ -4,10 +4,18 @@ A Google Sheets punching time clock. Made from an OrangePi Zero and MFRC522 modu
 ![blinky2](https://user-images.githubusercontent.com/8212296/33339935-3d6bed48-d440-11e7-80fb-850be5dc8113.gif)
 ![sideby](https://user-images.githubusercontent.com/8212296/33340459-bd7858d6-d441-11e7-9e00-3e7ec3b27a79.jpg)
 
-## Installation
+## Installation and Setup
 `git clone https://github.com/BiTinerary/TimeClockPi && bash ./TimeClockPi/requirements.sh`
 
 Installation assumes you're installing from a fresh Armbian installation. ie: the requirements script will prompt to set current time zone, installs basics like python-pip, etc...
+
+After the requirements.sh has been run, all repos and dependencies will be installed. The main script which waits for an RFID badge to be scanned is also, concurrently executed. So if you have your MFRC522 module already hooked up to the proper pins, you are basically good to go.  
+If not, and you are wondering how to setup each MFRC522 pin, reference the following guide: https://github.com/BiTinerary/OrangePiZeroMFRC522  
+These instructions will be consolidated to this repo at a later date.
+
+From here you still need to setup your badges/Google Sheets API. Change the UID variables in the `hashFile.txt` to match UID's of your own badges. Then also change the spreadsheet name in this same file, to the exact name of the spreadsheet being hosted on Google Drive.
+
+Setup Google API credentials. Directions on this later. Copy/Paste the Google API .json file to the OpiZero. **Share the email address** listed in this file with the Google spreadsheet you want to edit.
 
 ## Requirements
 * [OPi.GPIO](https://github.com/rm-hull/OPi.GPIO): A RPi.GPIO drop-in replacement library for OrangePi Zero
