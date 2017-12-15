@@ -7,7 +7,7 @@ apiCreds = '%s/MiscScripts-50022bf06964.json' % dirname
 
 
 def militaryTimestamp(): # return current time. For clock in/out stamp.
-        return datetime.datetime.now().strftime('%H:%M')
+        return datetime.datetime.now().strftime('%H:%M:%S')
 
 def getCoordOfToday(worksheet): #pass specially formatted datetime to row/column function. Which gets coordinates of cell corresponding to todays date.
         todayToTuple = getRowColumn(worksheet, str(today.strftime('X%m/X%d/20%y').replace('X0', '').replace('X', '')))
